@@ -44,7 +44,7 @@ function validarDNI() {
 
 function validarFechaNacimiento() {
   const valor = document.getElementById("fechaNacimiento").value;
-  // Simple check: must not be empty and must be a valid date in the past
+  
   const fecha = new Date(valor);
   const hoy = new Date();
   return valor.length > 0 && fecha instanceof Date && !isNaN(fecha) && fecha < hoy;
@@ -52,11 +52,11 @@ function validarFechaNacimiento() {
 
 function validarEmail() {
   const valor = document.getElementById("email").value;
-  // Simple email regex
+  
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor);
 }
 
-// Fix event listener typo
+
 document.getElementById("botonPreguntas").addEventListener("click", function () {
   const nacionalidad = prompt("¿Cuál es tu nacionalidad?");
   const color = prompt("¿Cuál es tu color favorito?");

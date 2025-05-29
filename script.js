@@ -71,3 +71,18 @@ document.getElementById("botonPreguntas").addEventListener("click", function () 
     </ul>
   `;
 });
+document.getElementById("miFormulario").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  if (
+    validarApellido() &&
+    validarNombre() &&
+    validarDNI() &&
+    validarFechaNacimiento() &&
+    validarEmail()
+  ) {
+    alert("Formulario");
+  } else {
+    alert("Error");
+  }
+});

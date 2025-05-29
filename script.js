@@ -1,32 +1,29 @@
 function validarApellido() {
   const valor = document.getElementById("apellido").value;
-  return /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(valor);
+  for (let i = 0; i < valor.length; i++) {
+    const c = valor[i];
+    const code = c.charCodeAt(0);
+    
+    if (
+      !(c === ' ' ||
+        (code >= 65 && code <= 90) || 
+        (code >= 97 && code <= 122) || 
+        (code >= 192 && code <= 255) ||
+        c === 'Ñ' || c === 'ñ')
+    ) {
+      return false;
+    }
+  }
+  return valor.length > 0;
 }
 
 function validarNombre() {
   const valor = document.getElementById("nombre").value;
-  return /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(valor);
+  for (let i = 0; i < valor.length; i
+
 }
 
-function validarDNI() {
-  const valor = document.getElementById("dni").value;
-  return /^\d{8}$/.test(valor);
-}
-
-function validarFechaNacimiento() {
-  const valor = document.getElementById("fechaNacimiento").value;
-  const fecha = new Date(valor);
-  const añoLimite = 2006;
-  return fecha.getFullYear() > añoLimite;
-}
-
-function validarEmail() {
-  const valor = document.getElementById("email").value;
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(valor);
-}
-
-document.getElementById("botonPreguntas").addEventListener("click", function () {
+document.geterelemento("botonPreguntas").addEvento("click", function () {
   const nacionalidad = prompt("¿Cuál es tu nacionalidad?");
   const color = prompt("¿Cuál es tu color favorito?");
   const mascota = prompt("¿Cómo se llama tu mascota?");
@@ -50,8 +47,8 @@ document.getElementById("registroForm").addEventListener("submit", function (e) 
     validarFechaNacimiento() &&
     validarEmail()
   ) {
-    alert("Formulario ");
+    alert("Formulario validado");
   } else {
-    alert("Error en los");
+    alert("Error");
   }
 });
